@@ -7,6 +7,8 @@ lost its brackets: `information_schema.columns` shows the default as `1 + 2 * 3`
 
 PostgreSQL 18.6 stores 4 and 9 and keeps the brackets.
 
+Reported upstream: https://github.com/dolthub/doltgresql/issues/3324
+
 ## Reproduce it
 
 You need Docker and a POSIX shell: Linux, macOS, or Windows with WSL. The first run downloads the images.
