@@ -37,8 +37,8 @@ docker run -d --name brackets-postgres -e POSTGRES_PASSWORD=password postgres:18
 docker run -d --name brackets-doltgresql -e DOLTGRES_PASSWORD=password dolthub/doltgresql:1.3.1
 docker cp repro.sql brackets-postgres:/tmp/repro.sql
 docker cp repro.sql brackets-doltgresql:/tmp/repro.sql
-docker exec -t -e PGPASSWORD=password brackets-postgres psql -X -h 127.0.0.1 -U postgres -d postgres --echo-all -f /tmp/repro.sql
-docker exec -t -e PGPASSWORD=password brackets-doltgresql psql -X -h 127.0.0.1 -U postgres -d postgres --echo-all -f /tmp/repro.sql
+docker exec -t -e PGPASSWORD=password brackets-postgres psql -X -P pager=off -h 127.0.0.1 -U postgres -d postgres --echo-all -f /tmp/repro.sql
+docker exec -t -e PGPASSWORD=password brackets-doltgresql psql -X -P pager=off -h 127.0.0.1 -U postgres -d postgres --echo-all -f /tmp/repro.sql
 docker rm -f brackets-postgres brackets-doltgresql
 ```
 
